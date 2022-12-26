@@ -1,7 +1,10 @@
 from db_filler import *
 from scrapper import Scrapper
+from pathlib import Path
 
-database = r"C:\Users\elcuni\Documents\CODE\datascientest\datascience_DB.db"
+
+database = str(Path.cwd()) + "\datascience_DB.db"
+DEEPNESS = 0
 
 def get_raw_data():
   scrappy = Scrapper()
@@ -11,7 +14,7 @@ def get_raw_data():
   article = []
   author = []
   for c in category.keys():
-      current_articles, current_author = scrappy.scrappe_a_category(c, 0)
+      current_articles, current_author = scrappy.scrappe_a_category(c, DEEPNESS)
       article += current_articles
       author += current_author
   return (article, set(author))

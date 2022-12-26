@@ -23,8 +23,8 @@ def create_table(conn, create_table_sql):
 
 
 def main():
-    database = r"C:\Users\elcuni\Documents\CODE\datascientest\datascience_DB.db"
-
+    database = Path.cwd() + "\datascience_DB.db"
+    
     sql_create_article_table = """ CREATE TABLE IF NOT EXISTS article (
                                         id integer PRIMARY KEY,
                                         name text NOT NULL UNIQUE,
